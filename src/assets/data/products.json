@@ -1,0 +1,338 @@
+[
+    {
+        "id": 1,
+        "productName": "ACER Nitro 5",
+        "description": "The ACER Nitro 5 is a powerful gaming laptop with high performance and impressive graphics capabilities. Ideal for gaming enthusiasts.",
+        "available": true,
+        "price": {
+            "old": 1700,
+            "current": 1450
+        },
+        "stars": 5,
+        "category_id": 1,
+        "brand_id": 5,
+        "reviews_number": 2,
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "text": "Great laptop for gaming and everyday use. Fast and reliable.",
+                "dateOfReviews": "2023-03-15"
+            },
+            {
+                "user": "JaneSmith",
+                "text": "Amazing performance, but the battery life could be better.",
+                "dateOfReviews": "2023-04-22"
+            }
+        ],
+        "picture": "assets/img/acer_nitro_5.jpg"
+    },
+    {
+        "id": 2,
+        "productName": "JBL Wave 100 TWS Ivory",
+        "description": "JBL Wave 100 TWS Ivory offers exceptional sound quality and a comfortable fit for all-day listening.",
+        "available": true,
+        "price": {
+            "old": 120,
+            "current": 75
+        },
+        "stars": 4,
+        "category_id": 4,
+        "brand_id": 6,
+        "reviews_number": 1,
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "text": "Great sound quality, but the battery life is a bit short.",
+                "dateOfReviews": "2023-01-10"
+            }
+        ],
+        "picture": "assets/img/jbl_Wave_slusalice.png"
+    },
+    {
+        "id": 3,
+        "productName": "HP 255 G9",
+        "description": "HP 255 G9 is a versatile and reliable laptop suitable for work and play.",
+        "available": true,
+        "price": {
+            "old": 630,
+            "current": 570
+        },
+        "stars": 5,
+        "category_id": 1,
+        "brand_id": 1,
+        "reviews_number": 4,
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "text": "Solid performance for the price. Highly recommend.",
+                "dateOfReviews": "2023-02-20"
+            },
+            {
+                "user": "JaneSmith",
+                "text": "Excellent build quality and great for multitasking.",
+                "dateOfReviews": "2023-03-05"
+            },
+            {
+                "user": "AliceBrown",
+                "text": "Good value for money. Works perfectly for my needs.",
+                "dateOfReviews": "2023-04-12"
+            },
+            {
+                "user": "BobWhite",
+                "text": "Fast and efficient, but could use more storage.",
+                "dateOfReviews": "2023-05-19"
+            }
+        ],
+        "picture": "assets/img/hp_255_g9.jpg"
+    },
+    {
+        "id": 4,
+        "productName": "HP Pavilion Plus 14-eh1013nm",
+        "description": "HP Pavilion Plus 14-eh1013nm is a sleek and stylish laptop with excellent performance and a stunning display.",
+        "available": true,
+        "price": {
+            "old": 950,
+            "current": 800
+        },
+        "stars": null,
+        "category_id": 1,
+        "brand_id": 1,
+        "reviews_number": 1,
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "text": "Great laptop with a beautiful screen. Perfect for work and entertainment.",
+                "dateOfReviews": "2023-05-01"
+            }
+        ],
+        "picture": "assets/img/hp_pavilion_plus.jpg"
+    },
+    {
+        "id": 5,
+        "productName": "SAMSUNG Galaxy S24 Ultra 12/512GB Titanium Black",
+        "description": "The SAMSUNG Galaxy S24 Ultra offers top-notch performance with a stunning display and a versatile camera system.",
+        "available": true,
+        "price": {
+            "old": 2000,
+            "current": 1650
+        },
+        "stars": 5,
+        "category_id": 2,
+        "brand_id": 2,
+        "reviews_number": 5,
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "text": "Absolutely love this phone! The camera is amazing.",
+                "dateOfReviews": "2023-02-15"
+            },
+            {
+                "user": "JaneSmith",
+                "text": "Great performance and beautiful design. Worth every penny.",
+                "dateOfReviews": "2023-03-10"
+            },
+            {
+                "user": "AliceBrown",
+                "text": "Best phone I've ever owned. Highly recommended.",
+                "dateOfReviews": "2023-04-05"
+            },
+            {
+                "user": "BobWhite",
+                "text": "Expensive but totally worth it for the features.",
+                "dateOfReviews": "2023-04-25"
+            },
+            {
+                "user": "CharlieGreen",
+                "text": "Amazing display and battery life. Very happy with my purchase.",
+                "dateOfReviews": "2023-05-18"
+            }
+        ],
+        "picture": "assets/img/samsung_s24_ultra_titanium_black.jpg"
+    },
+    {
+        "id": 6,
+        "productName": "SAMSUNG Galaxy A05s 4/64GB Black",
+        "description": "SAMSUNG Galaxy A05s offers reliable performance with essential features at an affordable price.",
+        "available": true,
+        "price": {
+            "old": null,
+            "current": 150
+        },
+        "stars": null,
+        "category_id": 2,
+        "brand_id": 2,
+        "reviews_number": 0,
+        "reviews": [],
+        "picture": "assets/img/samsung_a05s_black.jpg"
+    },
+    {
+        "id": 7,
+        "productName": "LENOVO IdeaPad 5 Pro",
+        "description": "LENOVO IdeaPad 5 Pro is a high-performance laptop with a stunning display and long battery life.",
+        "available": true,
+        "price": {
+            "old": 1700,
+            "current": 1320
+        },
+        "stars": 5,
+        "category_id": 1,
+        "brand_id": 4,
+        "reviews_number": 4,
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "text": "Excellent laptop for both work and entertainment.",
+                "dateOfReviews": "2023-03-22"
+            },
+            {
+                "user": "JaneSmith",
+                "text": "Great value for the performance it offers.",
+                "dateOfReviews": "2023-04-10"
+            },
+            {
+                "user": "AliceBrown",
+                "text": "Very satisfied with the display and speed.",
+                "dateOfReviews": "2023-05-01"
+            },
+            {
+                "user": "BobWhite",
+                "text": "Battery life is impressive. Highly recommend.",
+                "dateOfReviews": "2023-05-15"
+            }
+        ],
+        "picture": "assets/img/lenovo_idea_pad5_pro.jpg"
+    },
+    {
+        "id": 8,
+        "productName": "LENOVO Legion 5",
+        "description": "LENOVO Legion 5 is a powerful gaming laptop with advanced cooling technology and a stunning display.",
+        "available": true,
+        "price": {
+            "old": 2000,
+            "current": 1800
+        },
+        "stars": 5,
+        "category_id": 1,
+        "brand_id": 4,
+        "reviews_number": 2,
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "text": "Fantastic gaming laptop with great performance.",
+                "dateOfReviews": "2023-04-01"
+            },
+            {
+                "user": "JaneSmith",
+                "text": "Runs all my games smoothly. Love it!",
+                "dateOfReviews": "2023-05-10"
+            }
+        ],
+        "picture": "assets/img/lenovo_legion_5.jpg"
+    },
+    {
+        "id": 9,
+        "productName": "LG XBOOM RNC9 Partybox",
+        "description": "LG XBOOM RNC9 Partybox delivers powerful sound and dynamic lighting effects for the ultimate party experience.",
+        "available": false,
+        "price": {
+            "old": null,
+            "current": 550
+        },
+        "stars": null,
+        "category_id": 4,
+        "brand_id": 3,
+        "reviews_number": 0,
+        "reviews": [],
+        "picture": "assets/img/lg_xboom_rnc_9.jpg"
+    },
+    {
+        "id":10,
+        "productName":"LG GP60NB60 extern DVD±RW",
+        "description": "Lorem Ipsum",
+        "available":false,
+        "price":{
+            "old":null,
+            "current":null
+        },
+        "stars":null,
+        "category_id":4,
+        "brand_id":3,
+        "reviews_number":0,
+        "reviews":[
+            
+        ],
+        "picture":"assets/img/lg_eksterni_dvd.png"
+    },
+    {
+        "id": 11,
+        "productName": "LG XBOOM RNC5 Partybox",
+        "description": "The LG XBOOM RNC5 Partybox is designed to deliver high-quality sound with a built-in light show, perfect for any party.",
+        "available": true,
+        "price": {
+            "old": null,
+            "current": 340
+        },
+        "stars": 2,
+        "category_id": 4,
+        "brand_id": 3,
+        "reviews_number": 1,
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "text": "Sound quality is okay, but the light show is a nice touch.",
+                "dateOfReviews": "2023-01-10"
+            }
+        ],
+        "picture": "assets/img/lg_xboom_rnc_5.jpg"
+    },
+    {
+        "id": 12,
+        "productName": "SAMSUNG Galaxy A15",
+        "description": "The SAMSUNG Galaxy A15 offers great features and performance at a budget-friendly price.",
+        "available": true,
+        "price": {
+            "old": null,
+            "current": 200
+        },
+        "stars": 3,
+        "category_id": 2,
+        "brand_id": 2,
+        "reviews_number": 1,
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "text": "Decent phone for the price, but it lacks some premium features.",
+                "dateOfReviews": "2023-02-25"
+            }
+        ],
+        "picture": "assets/img/samsung_galaxy_a15_black.jpg"
+    },
+    {
+        "id": 13,
+        "productName": "ACER Nitro 5 Red",
+        "description": "The ACER Nitro 5 Red is a budget-friendly gaming laptop that offers solid performance and great graphics.",
+        "available": true,
+        "price": {
+            "old": 1100,
+            "current": 940
+        },
+        "stars": 5,
+        "category_id": 1,
+        "brand_id": 5,
+        "reviews_number": 2,
+        "reviews": [
+            {
+                "user": "JohnDoe",
+                "text": "Good value for the price, performs well in games.",
+                "dateOfReviews": "2023-03-15"
+            },
+            {
+                "user": "JaneSmith",
+                "text": "Love the design and performance, but it can get a bit hot.",
+                "dateOfReviews": "2023-04-22"
+            }
+        ],
+        "picture": "assets/img/acer_nitro_5_red.png"
+    }
+    
+]

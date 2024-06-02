@@ -1,0 +1,105 @@
+<div class="section">
+    <!-- container -->
+    <div class="container">
+        <!-- row -->
+        <div class="row">
+            <!-- ASIDE -->
+            <app-products-filters (izlaz_filteri)="backFromChild($event)"></app-products-filters>
+            <!-- /ASIDE -->
+
+            <!-- STORE -->
+            <div id="store" class="col-md-9">
+                <!-- store top filter -->
+                <div class="store-filter clearfix">
+                    <div class="store-sort">
+                        <label>
+                            Sort By:
+                            <select class="input-select">
+                                <option value="0">Popular</option>
+                                <option value="1">Position</option>
+                            </select>
+                        </label>
+
+                        <label>
+                            Show:
+                            <select class="input-select">
+                                <option value="0">20</option>
+                                <option value="1">50</option>
+                            </select>
+                        </label>
+                    </div>
+                    <ul class="store-grid">
+                        <li class="active"><i class="fa fa-th"></i></li>
+                        <li><a href="#"><i class="fa fa-th-list"></i></a></li>
+                    </ul>
+                </div>
+                <!-- /store top filter -->
+
+                <!-- store products -->
+                <div class="row">
+                    <!-- product -->
+                    @for(product of paginate_products; track product){
+                        <div class="col-md-4 col-xs-6">
+                            <div class="product">
+                                <div class="product-img">
+                                    <img src="../../../../{{product.picture}}" alt="">
+                                    <div class="product-label">
+                                        @if(product.price.old!=null){
+                                            <span class="new">%{{calculateDiscount(product.price.old,product.price.current)}}</span>
+                                        }
+                                       
+                                        
+                                    </div>
+                                </div>
+                                <div class="product-body">
+                                    <p class="product-category">Category</p>
+                                    <h3 class="product-name"><a href="#">{{product.productName}}</a></h3>
+                                    <h4 class="product-price">${{product.price.current}}.00 <del class="product-old-price">{{product.price.old!=null?'$'+product.price.old:""}}</del></h4>
+                                    <div class="product-rating">
+                                        @for(review of product.reviews; track review){
+                                            <i class="fa fa-star"></i>
+                                        }
+                                    </div>
+                                    <div class="product-btns">
+                                        <button class="add-to-wishlist"><i class="fa fa-heart-o"></i><span class="tooltipp">add to wishlist</span></button>
+                                        <button class="add-to-compare"><i class="fa fa-exchange"></i><span class="tooltipp">add to compare</span></button>
+                                        <button class="quick-view" (click)="singlePageRedirect(product.id)"><i class="fa fa-eye"></i><span class="tooltipp">quick view</span></button>
+                                    </div>
+                                </div>
+                                <div class="add-to-cart">
+                                    <button class="add-to-cart-btn"><i class="fa fa-shopping-cart"></i> add to cart</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    
+                    <!-- /product -->
+
+                    <!-- product -->
+                    <!-- /product -->
+
+                    <div class="clearfix visible-sm visible-xs"></div>
+
+                    <!-- product -->
+
+                    <!-- /product -->
+                </div>
+                <!-- /store products -->
+
+                <!-- store bottom filter -->
+                <div class="store-filter clearfix">
+                    
+                    <ul class="store-pagination">
+                     
+                        <li [class.disabled]="isDisabledPrevious"><a  (click)="movePrevious()" ><i class="fa fa-angle-left"></i></a></li>
+                        <li [class.disabled]="isDisabledNext"><a (click)="moveNext()"><i class="fa fa-angle-right"></i></a></li>
+                    </ul>
+                </div>
+                <!-- /store bottom filter -->
+            </div>
+            <!-- /STORE -->
+        </div>
+        <!-- /row -->
+    </div>
+    <!-- /container -->
+</div>
