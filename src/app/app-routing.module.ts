@@ -19,6 +19,10 @@ const routes: Routes = [
   {
     path:"contact",
     loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
+  },
+  {
+    path:"admin-panel",
+    loadChildren:()=>import('./admin-panel/admin-panel.module').then(m=>m.AdminPanelModule)
   }
 ];
 
