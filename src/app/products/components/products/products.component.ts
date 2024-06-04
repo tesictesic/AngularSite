@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
+import { CartItem } from '../../../cart/interface/cart-item';
+import { CartLogicService } from '../../../cart/services/cart-logic.service';
+import { ProductModalServiceService } from '../../../shared/service/product-modal-service.service';
 interface Product {
   id: number;
   productName: string;
@@ -30,9 +33,14 @@ export class ProductsComponent implements OnInit {
    per_page:number=9;
    current_page:number=1;
    filter_and_sort_from_child: { brand: Brand, category: Category } = { brand: [], category: [] };
+   cartText:string="";
+   cartItems:CartItem[]=[];
+   totalPrice:number=0;
   constructor(
     private router:Router,
-    private product_service:ProductService
+    private product_service:ProductService,
+    private cartService:CartLogicService,
+    private modal_cart:ProductModalServiceService
    
   ){}
   ngOnInit(): void {
@@ -49,6 +57,7 @@ export class ProductsComponent implements OnInit {
         error:(error)=>{console.log(error)}
       })
       if(this.current_page<=1) this.isDisabledPrevious=true;
+      
       
   }
   backFromChild(emit:any){
@@ -106,6 +115,18 @@ export class ProductsComponent implements OnInit {
     this.paginate_products = this.products.slice(startIndex, endIndex);
     console.log(this.products);
   }
+  addToCart(item:CartItem){
+    this.cartService.addToCart(item);
+    this.cartService.cartext$.subscribe(item=>{
+      this.cartText=item
+    })
+    this.modal_cart.changeTextToCart(this.cartText);
+    this.modal_cart.changeModalStatus(false);
+    setTimeout(() => {
+      this.modal_cart.changeModalStatus(true);  
+    }, 2000);
+    
+  }  
 
 
 }

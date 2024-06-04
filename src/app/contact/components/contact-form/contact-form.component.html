@@ -1,43 +1,72 @@
 <div class="container">
     <div class="row justify-content-center mt-5 mb-3">
-        <div class="col-md-8">
-            <div class="card">
+        <div class="col-md-12">
+            <div class="card" style="margin:0px auto; width: 22%;">
                 
 
                 <div class="card-body">
-                    <form action="#" class="needs-validation">
+                    <form [formGroup]="form">
                         <div class="mb-3">
-                            <label for="firstName" class="form-label">First Name</label>
-                            <input type="text" class="form-control" id="firstName" placeholder="Wendy" required>
-                            <div class="invalid-feedback">Please provide a first name.</div>
+                            <mat-form-field>
+                                <mat-label>First Name</mat-label>
+                                <input formControlName="first_name" matInput>
+                              </mat-form-field>
+                              <div *ngIf="form.get('first_name').hasError('pattern')">
+                                <p class="alert alert-danger">First Name is not in good format. Example:John</p>
+                            </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="lastName" class="form-label">Last Name</label>
-                            <input type="text" class="form-control" id="lastName" placeholder="Appleseed">
+                            <mat-form-field>
+                                <mat-label>Last Name</mat-label>
+                                <input formControlName="last_name" matInput>
+                              </mat-form-field>
+                              <div *ngIf="form.get('last_name').hasError('pattern')">
+                                <p class="alert alert-danger">Last name is not in good format. Example:Doe</p>
+                            </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="wendy.apple@seed.com" required>
-                            <div class="invalid-feedback">Please provide a valid email.</div>
+                            <div class="example-container">
+                                <mat-form-field>
+                                  <mat-label>Enter your email</mat-label>
+                                  <input matInput
+                                         placeholder="pat@example.com"
+                                         formControlName="email"
+                                         required>
+                                
+                                </mat-form-field>
+                                <div *ngIf="form.get('email').hasError('email')">
+                                    <p class="alert alert-danger">Email is not in good format. Example: johndoe.&#64;tesagmail.com</p>
+                                </div>
+                              </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="phone" class="form-label">Phone Number</label>
-                            <input type="tel" class="form-control" id="phone" placeholder="(021)-454-545">
+                            <mat-form-field>
+                            <mat-label>Phone</mat-label>
+                                <input formControlName="phone" matInput>
+                              </mat-form-field>
+                              <div *ngIf="form.get('phone').hasError('pattern')">
+                                <p class="alert alert-danger">Phone number must be started with +381 and other are decimals</p>
+                            </div>
                         </div>
 
                         <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" placeholder="Hi there, I would like to..." required></textarea>
-                            <div class="invalid-feedback">Please enter a message.</div>
+                            <mat-form-field>
+                                <mat-label>Message</mat-label>
+                                <textarea formControlName="message" matInput></textarea>
+                              </mat-form-field>
+                              <div *ngIf="form.get('message').hasError('minlength')">
+                                <p class="alert alert-danger">Message need to have minimum 5 length</p>
+                            </div>
                         </div>
 
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" (click)="save()" [disabled]="form.invalid" mat-flat-button color="warn">Accent</button>
                     </form>
                 </div>
             </div>
         </div>
     </div>
 </div>
+<app-modal-contact-form></app-modal-contact-form>

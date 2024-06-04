@@ -8,6 +8,7 @@ import { ProductSinglePageComponent } from './components/product-single-page/pro
 import { HttpClientModule } from '@angular/common/http';
 import { ProductService } from './services/product.service';
 import { FormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     CommonModule,
     ProductsRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    SharedModule
   ],
   providers:[ProductService]
 })

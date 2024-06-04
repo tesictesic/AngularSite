@@ -23,6 +23,14 @@ const routes: Routes = [
   {
     path:"admin-panel",
     loadChildren:()=>import('./admin-panel/admin-panel.module').then(m=>m.AdminPanelModule)
+  },
+  {
+    path:"author",
+    loadChildren:()=>import('./author/author.module').then(m=>m.AuthorModule)
+  },
+  {
+    path:"cart",
+    loadChildren:()=>import('./cart/cart.module').then(m=>m.CartModule)
   }
 ];
 

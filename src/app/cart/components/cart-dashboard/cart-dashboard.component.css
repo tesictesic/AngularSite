@@ -1,0 +1,19 @@
+.dj-t-flex{
+    display: flex; 
+    justify-content: end;
+     margin-top: 50px;
+}
+.red-btn{
+    background-color: red;
+    color:white;
+    border:1px solid black;
+    padding:10px 20px;
+    border-radius: 3px;
+}
+.green-btn{
+    background-color: green;
+    color:white;
+    border:1px solid black;
+    padding:10px 20px;
+    border-radius: 3px;
+}
