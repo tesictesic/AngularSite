@@ -22,7 +22,8 @@ import { SharedModule } from '../shared/shared.module';
     ProductsRoutingModule,
     HttpClientModule,
     FormsModule,
-    SharedModule
+    SharedModule,
+    
   ],
   providers:[ProductService]
 })

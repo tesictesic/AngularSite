@@ -21,10 +21,6 @@ const routes: Routes = [
     loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
   },
   {
-    path:"admin-panel",
-    loadChildren:()=>import('./admin-panel/admin-panel.module').then(m=>m.AdminPanelModule)
-  },
-  {
     path:"author",
     loadChildren:()=>import('./author/author.module').then(m=>m.AuthorModule)
   },

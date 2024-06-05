@@ -24,7 +24,13 @@ export class CartLogicService {
     this.cartItems$.next(this.cartItems);
     this.getTotalCount();
   }
-
+ updateQuantity(item:CartItem,value:number){
+  const existingItem=this.cartItems.find(i=>i.id===item.id);
+  if(existingItem){
+    existingItem.quantity=value;
+  }
+  this.getTotalPrice();
+ }
   removeFromCart(itemId: number) {
     this.cartItems = this.cartItems.filter(i => i.id !== itemId);
     this.saveCartItemsToLocalStorage();

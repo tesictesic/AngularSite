@@ -1,0 +1,12 @@
+.dj-t-flex {
+    display: flex;
+}
+.dj-t-center {
+    justify-content: center;
+}
+.dj-t-align-center {
+    align-items: center;
+}
+.dj-t-margin-bottom50{
+    margin:50px 0px;
+}

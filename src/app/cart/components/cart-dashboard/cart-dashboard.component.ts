@@ -40,6 +40,13 @@ export class CartDashboardComponent implements OnInit {
   goToCheckoutPage(){
     this.router.navigateByUrl("/cart/checkout");
   }
+  updateQuantity(item:CartItem, value:string){
+    let value_int=parseInt(value);
+    this.cartService.updateQuantity(item,value_int);
+     this.cartService.cartItems$.subscribe(item=>{
+      this.totalPrice=this.cartService.getTotalPrice();
+     })
+  }
    
 }
 
