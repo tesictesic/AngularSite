@@ -4,6 +4,7 @@ import { AdminDashboardComponent } from './components/admin-dashboard/admin-dash
 import { RouterModule } from '@angular/router';
 import { ModalContactFormComponent } from './components/modal-contact-form/modal-contact-form.component';
 import { ModalCartAlertComponent } from './components/modal-cart-alert/modal-cart-alert.component';
+import { CartModalComponent } from './components/cart-modal/cart-modal.component';
 
 
 
@@ -11,7 +12,8 @@ import { ModalCartAlertComponent } from './components/modal-cart-alert/modal-car
   declarations: [
     AdminDashboardComponent,
     ModalContactFormComponent,
-    ModalCartAlertComponent
+    ModalCartAlertComponent,
+    CartModalComponent
   ],
   imports: [
     CommonModule,
@@ -20,7 +22,8 @@ import { ModalCartAlertComponent } from './components/modal-cart-alert/modal-car
   exports:[
     AdminDashboardComponent,
     ModalContactFormComponent,
-    ModalCartAlertComponent
+    ModalCartAlertComponent,
+    CartModalComponent,
   ]
 })
 export class SharedModule { }

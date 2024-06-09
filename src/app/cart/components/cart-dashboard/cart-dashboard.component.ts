@@ -37,8 +37,8 @@ export class CartDashboardComponent implements OnInit {
   removeAll():void{
     this.cartService.removeAll();
   }
-  goToCheckoutPage(){
-    this.router.navigateByUrl("/cart/checkout");
+  Checkout(){
+    this.cartService.Checkout();
   }
   updateQuantity(item:CartItem, value:string){
     let value_int=parseInt(value);

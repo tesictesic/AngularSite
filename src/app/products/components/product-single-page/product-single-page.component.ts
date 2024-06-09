@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ProductService } from '../../services/product.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { CartLogicService } from '../../../cart/services/cart-logic.service';
 import { ProductModalServiceService } from '../../../shared/service/product-modal-service.service';
 import { CartItem } from '../../../cart/interface/cart-item';
+import { Product } from '../../interfaces/product';
 
 @Component({
   selector: 'app-product-single-page',
@@ -15,12 +15,14 @@ export class ProductSinglePageComponent implements OnInit {
    products:any=[];
    product:any|null=null;
    product_stars:number[]=[];
+   related_products:Product[]=[];
   cartText: string="";
   constructor(
     private http:HttpClient,
+    private router:Router,
     private activated_route:ActivatedRoute,
     private cartService:CartLogicService,
-    private modal_cart:ProductModalServiceService
+    private modal_cart:ProductModalServiceService,
   ){}
   ngOnInit(): void {
     let product_id=this.activated_route.snapshot.paramMap.get('id');
@@ -29,16 +31,26 @@ export class ProductSinglePageComponent implements OnInit {
         this.products=data;
         for(let element of this.products){
           if(element.id==product_id){
-            console.log(element);
             this.product=element;
           }
         }
         for(let i=0;i<this.product.stars;i++){
           this.product_stars.push(i+1);
         }
+        for(let elemet of this.products){
+          if (elemet.brand_id===this.product.brand_id) {
+            if(!(elemet.productName.toLowerCase()===this.product.productName.toLowerCase())){
+              console.log(elemet);
+              this.related_products.push(elemet);  
+            }
+            
+        }
+        }
+        console.log(this.related_products);
       },
       error:(error)=>{console.log(error)}
     })
+   
   }
   addToCart(item:CartItem){
     this.cartService.addToCart(item);
@@ -51,5 +63,12 @@ export class ProductSinglePageComponent implements OnInit {
       this.modal_cart.changeModalStatus(true);  
     }, 2000);
     
+  }
+    redirectToProduct(id: number) {
+      this.router.navigate(['/products']).then(() => {
+        this.router.navigate(['/products', id]);
+      });
+
+    }
+    
   } 
-}

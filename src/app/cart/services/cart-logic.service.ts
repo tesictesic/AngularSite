@@ -9,6 +9,8 @@ export class CartLogicService {
   private cartItems: CartItem[] = [];
   cartItems$ = new BehaviorSubject<CartItem[]>(this.getCartItemsFromLocalStorage());
   cartext$=new BehaviorSubject<string>('');
+  carCheckout$=new BehaviorSubject<boolean>(false);
+  checkout_clicked:boolean=false;
 
   addToCart(item: CartItem) {
     const existingItem = this.cartItems.find(i => i.id === item.id);
@@ -57,6 +59,11 @@ export class CartLogicService {
     this.saveCartItemsToLocalStorage();
     this.cartItems$.next(this.cartItems);
     this.getTotalCount();
+  }
+  Checkout():void{
+    this.removeAll();
+    this.checkout_clicked=true;
+    this.carCheckout$.next(this.checkout_clicked);
   }
 
   private saveCartItemsToLocalStorage() {

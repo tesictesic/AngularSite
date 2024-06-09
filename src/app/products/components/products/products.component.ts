@@ -4,18 +4,7 @@ import { ProductService } from '../../services/product.service';
 import { CartItem } from '../../../cart/interface/cart-item';
 import { CartLogicService } from '../../../cart/services/cart-logic.service';
 import { ProductModalServiceService } from '../../../shared/service/product-modal-service.service';
-interface Product {
-  id: number;
-  productName: string;
-  description: string;
-  price: {
-    old: number;
-    current: number;
-  };
-  category_id: number;
-  brand_id: number;
-  // Dodajte ostale polja proizvoda ovde ako ih ima
-}
+import { Product } from '../../interfaces/product';
 type Brand = number[];
 type Category = number[];
 @Component({
@@ -33,9 +22,20 @@ export class ProductsComponent implements OnInit {
    per_page:number=9;
    current_page:number=1;
    filter_and_sort_from_child: { brand: Brand, category: Category } = { brand: [], category: [] };
+   sort_choose:string="";
+   options: string[] = ['Choose', 'Name ASC', 'Name DESC', 'Price ASC', 'Price DESC'];
    cartText:string="";
    cartItems:CartItem[]=[];
    totalPrice:number=0;
+
+sorted(value:string):void{
+ this.sort_choose=value;
+ console.log(this.sort_choose);
+ if(this.sort_choose!='Choose'){
+  this.filter_sort();
+ }
+
+}
   constructor(
     private router:Router,
     private product_service:ProductService,
@@ -65,11 +65,11 @@ export class ProductsComponent implements OnInit {
     console.log(this.filter_and_sort_from_child);
     this.filter_sort();
   }
+  
   filter_sort():void{
     let brands=this.filter_and_sort_from_child.brand
     let categories=this.filter_and_sort_from_child.category
-    let pom_array:Product[]=[];
-    
+    let sort_ddl=this.sort_choose;
     let filteredProducts = this.products;
 
     if (brands.length > 0) {
@@ -79,6 +79,13 @@ export class ProductsComponent implements OnInit {
     if (categories.length > 0) {
       filteredProducts = filteredProducts.filter(product => categories.includes(product.category_id));
     }
+    if(sort_ddl!='Choose'){
+      if(sort_ddl=="Name ASC") filteredProducts=filteredProducts.sort((a,b)=> a.productName.localeCompare(b.productName))
+      else if(sort_ddl=="Name DESC") filteredProducts=filteredProducts.sort((a,b)=> b.productName.localeCompare(a.productName))
+     else if(sort_ddl=='Price ASC') filteredProducts=filteredProducts.sort((a,b)=> a.price.current - b.price.current)
+    else if(sort_ddl=='Price DESC') filteredProducts=filteredProducts.sort((a,b)=> b.price.current - a.price.current)
+    }
+    console.log(this.sort_choose);
     console.log(filteredProducts);
     this.paginate_products=filteredProducts;
     console.log(this.paginate_products);
