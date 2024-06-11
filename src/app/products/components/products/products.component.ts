@@ -19,11 +19,11 @@ export class ProductsComponent implements OnInit {
    paginate_products:any=[];
    number_of_page:number|null=null;
    number_of_page_array:number[]=[];
-   per_page:number=9;
+   per_page:number=15;
    current_page:number=1;
    filter_and_sort_from_child: { brand: Brand, category: Category } = { brand: [], category: [] };
    sort_choose:string="";
-   options: string[] = ['Choose', 'Name ASC', 'Name DESC', 'Price ASC', 'Price DESC'];
+   options: string[] = ['Name ASC', 'Name DESC', 'Price ASC', 'Price DESC'];
    cartText:string="";
    cartItems:CartItem[]=[];
    totalPrice:number=0;
@@ -31,9 +31,8 @@ export class ProductsComponent implements OnInit {
 sorted(value:string):void{
  this.sort_choose=value;
  console.log(this.sort_choose);
- if(this.sort_choose!='Choose'){
+  console.log("usao");
   this.filter_sort();
- }
 
 }
   constructor(
@@ -58,7 +57,7 @@ sorted(value:string):void{
       })
       if(this.current_page<=1) this.isDisabledPrevious=true;
       
-      
+      this.paginate_products=this.product_service;
   }
   backFromChild(emit:any){
     this.filter_and_sort_from_child=emit;
@@ -79,12 +78,11 @@ sorted(value:string):void{
     if (categories.length > 0) {
       filteredProducts = filteredProducts.filter(product => categories.includes(product.category_id));
     }
-    if(sort_ddl!='Choose'){
+    
       if(sort_ddl=="Name ASC") filteredProducts=filteredProducts.sort((a,b)=> a.productName.localeCompare(b.productName))
       else if(sort_ddl=="Name DESC") filteredProducts=filteredProducts.sort((a,b)=> b.productName.localeCompare(a.productName))
      else if(sort_ddl=='Price ASC') filteredProducts=filteredProducts.sort((a,b)=> a.price.current - b.price.current)
     else if(sort_ddl=='Price DESC') filteredProducts=filteredProducts.sort((a,b)=> b.price.current - a.price.current)
-    }
     console.log(this.sort_choose);
     console.log(filteredProducts);
     this.paginate_products=filteredProducts;

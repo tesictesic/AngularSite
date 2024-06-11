@@ -252,7 +252,7 @@
         "available":false,
         "price":{
             "old":null,
-            "current":null
+            "current":50
         },
         "stars":null,
         "category_id":4,
